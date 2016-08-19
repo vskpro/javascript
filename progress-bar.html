@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nav Menu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		
+
+		.progress {
+			height:30px;
+			width:300px;
+			margin:auto;
+			margin-top:100px;
+			box-shadow: 0px 0px 5px -2px #000;
+			position: relative;
+		}
+		.bar {
+			position: absolute;
+			height: inherit;
+			background-color: red;
+		}
+		.percentage {
+			text-align: center;
+			margin-top:10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="progress">
+		<div class="bar"></div>
+	</div>
+	<div class="percentage">0%</div>
+
+	<script>
+
+
+	window.load = progress();
+
+	function progress() {
+		var bar = document.getElementsByClassName('bar')[0];
+		var count = document.getElementsByClassName('percentage')[0];
+		count.style.color = "red";
+		currentWidth = 0;
+		var runProgress = setInterval(startProgress,20);
+
+		function startProgress() {
+			if(currentWidth==100) {
+				clearInterval(runProgress);
+			}
+			else {
+				currentWidth++;
+				bar.style.width = currentWidth+"%";
+				var percentage = currentWidth*1;
+				if(percentage==100) {
+					count.innerHTML = percentage+"%";
+					bar.style.backgroundColor = "green";
+					setTimeout(showCompleted,10);
+				}
+				else {
+					count.innerHTML = percentage+"%";
+
+				}
+			}
+		}
+
+		function showCompleted() {
+			count.innerHTML = "Completed";
+			count.style.color = "green";
+		}
+
+	}
+
+	</script>
+</body>
+</html>
