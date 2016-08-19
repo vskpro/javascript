@@ -1,0 +1,189 @@
+<!-- 
+	
+Aim: Responsive Navigation Menu
+
+	1) Show Normal Menu on devices with width 768px and above.
+		-Hide the Mobile Menu Here.
+	2) When screen width is less than 768px Hide Main Menu and Show Mobile Menu
+		-Toggle Menu to show and hide 
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nav Menu</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	
+	<style>
+		* {
+			margin:0px;
+			padding:0px;
+			box-sizing: border-box;
+		}
+		html {
+			height:100%;
+		}
+		body {
+			min-height: 100%;
+		}
+		.bar {
+			border:2px solid white;
+			margin:6px 0px;
+			margin-top: 0px;
+			width: 30px;
+		}
+
+		.menu-wrapper {
+			background-color: rgba(0,0,0,0.8);
+			min-height: 49px;
+			position: relative;
+		}
+
+		#mobile-menu,#canvas-menu {
+			display: none;
+		}
+
+		#real-menu {
+			display: block;
+			float: right;
+		}
+
+		#real-menu ul {
+			display: block;
+		}
+
+		#real-menu ul li {
+			display: inline-block;
+			float: left;
+		}
+
+		#real-menu ul li a {
+			display: block;
+			text-decoration: none;
+			color:white;
+			padding: 15px;
+			text-transform: uppercase;
+			transition: all 0.3s ease-in;
+		}
+
+		#real-menu ul li a:hover {
+			background-color: rgba(0,0,0,0.6);
+			color:#dcdcdc;
+		}
+		@media screen and (min-width: 768px) {
+
+			#real-menu {
+				display: block!important;
+			}
+			#canvas-menu {
+				//display: none;
+			}
+		}
+		@media screen and (max-width: 767px) {
+
+			#real-menu {
+				display: none;
+			}	
+
+
+			#mobile-menu {
+				display: block;
+				position: absolute;
+				top:12px;
+				left:20px;
+			}
+
+			#mobile-menu:hover {
+				cursor: pointer;
+			}
+
+			#mobile-menu:active {
+				transform: scale(0.9);
+			}
+
+			#canvas-menu {
+				display: block;
+				width: 250px;
+				margin-left: -250px;
+				height: 100vh;
+				float: left;
+				margin-top:49px;
+			    background: rebeccapurple;
+			    transition: 0.5s ease-in-out;
+			}
+
+			#canvas-menu ul li {
+				display: block;
+				width: 100%;
+			}
+
+			#canvas-menu ul li a {
+				display: block;
+				text-decoration: none;
+				color:white;
+				padding: 15px;
+				text-transform: uppercase;
+				transition: all 0.3s ease-in;
+				text-align: center;
+			}
+
+			#canvas-menu ul li a:hover {
+				background-color: rgba(0,0,0,0.6);
+				color:#dcdcdc;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div id="canvas-menu" class="off">
+		<ul>
+			<li><a href="#">home</a></li>
+			<li><a href="#">about</a></li>
+			<li><a href="#">gallery</a></li>
+			<li><a href="#">contact us</a></li>
+		</ul>
+	</div>
+<div class="menu-wrapper">
+	<div id="mobile-menu" onclick="toggleMenu()">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+
+	<div id="real-menu" class="off">
+		<ul>
+			<li><a href="#">home</a></li>
+			<li><a href="#">about</a></li>
+			<li><a href="#">gallery</a></li>
+			<li><a href="#">contact us</a></li>
+		</ul>
+	</div>
+</div>
+<script>
+
+	function toggleMenu() {
+
+		var menu = document.getElementById('canvas-menu');
+
+
+		if(menu.getAttribute('class') === 'off') {
+
+			menu.setAttribute('class','on');
+			menu.style.marginLeft = 0+"px";
+
+		}
+		else {
+			menu.setAttribute('class','off');
+			menu.style.marginLeft = -250+"px";
+			
+
+		}
+
+	}
+
+
+</script>
+</body>
+</html>

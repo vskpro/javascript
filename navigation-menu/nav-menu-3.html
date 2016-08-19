@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nav Menu</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+		.menu-bar {
+			cursor: pointer;
+			width:25px;
+			margin-left:20px;
+		}
+		.bar
+		{
+			width:25px;
+			display: block;
+			border:2px solid black;
+			margin-bottom:5px;
+		}
+		.nav-menu {
+			background-color: black;
+			height: 100%;
+			width: 0px;
+			position: fixed;
+			top:0px;
+			left: 0px;
+			overflow-x: hidden;
+			transition: 0.2s ease-in;
+		}
+		.nav-menu ul {
+			position: relative;
+			top:30px;
+		}
+		.nav-menu ul li {
+			float:left;
+			list-style-type: none;
+			display: block;
+			width: 100%;
+		}
+		.nav-menu ul li a {
+			text-decoration: none;
+			color:white;
+			display: block;
+			padding:15px;
+		}
+		.nav-menu ul li a:hover {
+			background-color:red;
+		}
+		.close {
+			position: absolute;
+			z-index: 9999;
+			top:2px;
+			right:10px;
+			padding: 5px 10px;
+			border-radius: 100%;
+			color:#dcdcdc;
+			display: inline-block;
+			font-size: 25px;
+			font-weight: bolder;
+			cursor: pointer;
+		}
+		.content {
+			transition: 0.7s ease-in-out;
+		}
+	</style>
+</head>
+<body>
+<div class="nav-menu">
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Gallery</a></li>
+		<li><a href="#">Contact us</a></li>
+	</ul>
+	<span class="close" onclick="hideMenu()">&times;</span>
+</div>
+<br>
+<div class="content">
+	<div class="menu-bar" onclick="showMenu()">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<div>Here Goes the Content</div>
+</div>
+<script>
+	var menu = document.getElementsByClassName('nav-menu')[0];
+	var content = document.getElementsByClassName('content')[0];
+	function showMenu() {
+
+		menu.style.width = 250+"px";
+		content.style.marginLeft = 250+"px";
+		document.body.style.backgroundColor = "rgba(0,0,0,0.6)";
+	}
+	function hideMenu() {
+
+		menu.style.width = 0+"px";
+		content.style.marginLeft = 0+"px";
+		document.body.style.backgroundColor = "white";
+	}
+
+	
+</script>
+</body>
+</html>
