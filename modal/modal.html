@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.openModal {
+			cursor: pointer;
+			width: 200px;
+			margin:auto;
+			padding: 20px;
+			background: limegreen;
+			color: white;
+			text-align: center;
+			font-weight: 600;
+			font-size: 28px;
+			box-shadow: 0px 0px 2px 0px grey;
+			font-family: fantasy;
+		}
+		.modal {
+			width: 65%;
+			box-shadow: 0px 0px 20px lightgrey;
+			margin: auto;
+			transition: 0.6s ease-in;
+			position: relative;
+			margin-top:-400px;
+			z-index: 1;
+		}
+		.modal span {
+			float: right;
+			margin-right:20px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-size: 2em;
+			font-weight: 800;
+			color:#dcdcdc;
+			transition: 0.2s;
+			cursor: pointer;
+			display: inline-block;
+		}
+		.modal span:hover {
+			color:rgba(0,0,0,0.9);
+		}
+		.modal-heading {
+			clear:right;
+			width:100%;
+			background-color: aliceblue;
+			padding:20px 0px;
+			text-align: center;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		.modal-body {
+			padding: 40px 0px;
+			text-align: center;
+		}
+		.modal-footer {
+			padding: 10px 0px;
+			background-color: aliceblue;
+    		text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="openModal">Open Modal</div>
+	<div class="modal">
+		<span class="closeModal" >&times;</span>
+		<div class="modal-heading" onlick="console.log('Okay')">Heading</div>
+		<div class="modal-body">Body</div>
+		<div class="modal-footer">Footer</div>
+	</div>
+	<script defer>
+		var openModal = document.getElementsByClassName('openModal')[0];
+		openModal.onclick = function() {
+			document.getElementsByClassName('modal')[0].style.marginTop = 0+"px";
+			document.body.backgroundColor = "rgba(0,0,0,0.4)"
+		};
+		var closeModal = document.getElementsByClassName('closeModal')[0];
+			console.log(closeModal);
+
+		closeModal.onclick = function() {
+			document.getElementsByClassName('modal')[0].style.marginTop = "-"+400+"px";
+		};
+	</script>
+</body>
+</html>

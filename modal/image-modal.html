@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Modal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		.thumbnail {
+			height: 200px;
+			width: 250px;
+			display: block;
+			margin: auto;
+			margin-top:150px;
+			outline: 1px solid #dcdcdc;
+			outline-offset: 3px;
+			transition: 0.3s;
+		}
+		.thumbnail:hover {
+			opacity: 0.8;
+			cursor: pointer;
+		}
+		.modal-wrapper {
+			position: fixed;
+			top:0;
+			left:0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0,0,0,0.8);
+			display: none;
+		}
+		.modal-main {
+			animation-name:animate;
+			animation-duration: 0.8s;
+			width: 60%;
+			margin:auto;
+			padding-top:100px;
+		}
+		.close {
+			position: absolute;
+			right:50px;
+			top:30px;
+			color:#dcdcdc;
+			font-size: 3em;
+			font-weight: bolder;
+			transition: 0.2s;
+		}
+		.close:hover {
+			color:white;
+			cursor: pointer;
+		}
+		.modal-image {
+			margin: auto;
+			display: block;
+			width: 80%;
+			max-width: 700px;
+		}
+		@keyframes animate {
+			from {
+				transform: scale(0);
+			}
+			to {
+				transform: scale(1);
+			}
+		}
+	</style>
+</head>
+<body>
+	<img src="images/slider1.jpg" class="thumbnail">
+	<div class="modal-wrapper">
+		<span class="close">&times;</span>
+		<div class="modal-main">
+			<img class="modal-image">
+		</div>
+	</div>
+	<script defer>
+		var modal = document.getElementsByClassName('modal-wrapper')[0];
+		var close = document.getElementsByClassName('close')[0];
+		var image = document.getElementsByClassName('thumbnail')[0];
+		var modalImage = document.getElementsByClassName('modal-image')[0];
+
+		image.onclick = function() {
+			modal.style.display = "block";
+			modalImage.src = this.src;
+
+		};
+		close.onclick = function() {
+			modal.style.display = "none";
+		};
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+</body>
+</html>
