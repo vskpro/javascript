@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Center</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<style>
+	body {
+		margin: 0px;
+		padding: 0px;
+		background: #000;
+	}
+	ul {
+		list-style-type: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		color: #fff;
+	}
+	li {
+		display: inline-block;
+		letter-spacing: 30px;
+		font-size: 3.5em;
+		font-family: 'Arial';
+		font-weight: 300;
+		opacity: 1;
+		transition: all 1.5s ease;
+	}
+	ul.hidden li {
+		opacity: 0;
+	}
+	ul.hidden li:nth-child(1){transform: translateX(-100px) rotateY(-130deg) translateY(80px);}
+	ul.hidden li:nth-child(2){transform: translateX(-30px) rotateY(-80deg) translateY(-200px);}
+	ul.hidden li:nth-child(3){transform: translateX(-30px) rotateY(-80deg) translateY(200px);}
+	ul.hidden li:nth-child(4){transform: translateX(-300px) rotateY(-250deg) translateY(-110px);}
+	ul.hidden li:nth-child(5){transform: translateX(-150px) rotateY(100deg) translateY(100px);}
+	ul.hidden li:nth-child(6){transform: translateX(-20px) rotateY(-170deg) translateY(-100px);}
+	ul.hidden li:nth-child(7){transform: translateX(100px) rotateY(-100deg) translateY(-250px);}
+</style>
+
+<ul class="hidden">
+	<li>W</li>
+	<li>E</li>
+	<li>L</li>
+	<li>C</li>
+	<li>O</li>
+	<li>M</li>
+	<li>E</li>
+</ul>
+<script type="text/javascript">
+	(function(){
+		$(document).ready(function(){
+			setTimeout(function(){
+				$('ul').removeClass('hidden');
+			},300);
+		});
+	})();
+</script>
+</body>
+</html>
